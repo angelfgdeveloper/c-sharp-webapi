@@ -32,9 +32,10 @@ public class WeatherForecastController : ControllerBase
   }
 
   [HttpGet(Name = "GetWeatherForecast")]
-  [Route("Get/weatherforecast")] // Agregar ruta de ruta en ruta
-  [Route("Get/weatherforecast2")] // https://localhost:7294/api/weatherforecast/get/weatherforecast2
-  [Route("[action]")] // Permite utilizar el nombre delmetodo Get => https://localhost:7294/api/weatherforecast/get
+  // COMENTAMOS PARA LLEVAR EL ESTANDAR CON SWAGGER UI
+  // [Route("Get/weatherforecast")] // Agregar ruta de ruta en ruta
+  // [Route("Get/weatherforecast2")] // https://localhost:7294/api/weatherforecast/get/weatherforecast2
+  // [Route("[action]")] // Permite utilizar el nombre delmetodo Get => https://localhost:7294/api/weatherforecast/get
   public IEnumerable<WeatherForecast> Get()
   {
     _logger.LogInformation("Retornando la lista de watherforeacast"); // Debug o console.log('parecido');

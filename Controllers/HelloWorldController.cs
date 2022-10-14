@@ -16,6 +16,7 @@ public class HelloWorldController: ControllerBase
     this.helloWorldService = helloWorldService;
   }
 
+  [HttpGet] // PAra cumplir con el estandar de swagger
   public IActionResult Get() //Metodo Get
   {
     _logger.LogInformation("Retornando Hello_World"); // Debug o console.log('parecido');

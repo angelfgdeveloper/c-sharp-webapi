@@ -15,8 +15,9 @@ builder.Services.AddScoped<IHelloWorldService, HelloWorldService>(); // App stal
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment()) // Ambiente para desarrollador - no para produccion
 {
+    // https://localhost:7294/swagger/index.html => Para ver la documentacion
     app.UseSwagger();
     app.UseSwaggerUI();
 }
