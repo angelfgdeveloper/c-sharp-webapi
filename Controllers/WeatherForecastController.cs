@@ -21,7 +21,7 @@ public class WeatherForecastController : ControllerBase
 
     if (ListWeatherForecast == null || !ListWeatherForecast.Any()) // Any() Sino tiene ningun dato en la lista
     {
-      ListWeatherForecast =  Enumerable.Range(1, 5).Select(index => new WeatherForecast
+      ListWeatherForecast = Enumerable.Range(1, 5).Select(index => new WeatherForecast
       {
         Date = DateTime.Now.AddDays(index),
         TemperatureC = Random.Shared.Next(-20, 55),
@@ -37,7 +37,8 @@ public class WeatherForecastController : ControllerBase
   [Route("[action]")] // Permite utilizar el nombre delmetodo Get => https://localhost:7294/api/weatherforecast/get
   public IEnumerable<WeatherForecast> Get()
   {
-   return ListWeatherForecast;
+    _logger.LogInformation("Retornando la lista de watherforeacast"); // Debug o console.log('parecido');
+    return ListWeatherForecast;
   }
 
   [HttpPost]
