@@ -18,7 +18,7 @@ public class Time
       await context.Response.WriteAsync(DateTime.Now.ToShortTimeString());
     }
 
-    // await next(context); // No devuelve la informacion ya que viene modificado
+    // await next(context); // No devuelve la informacion en la peticion, ya que viene modificado
   }
 
 }

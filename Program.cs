@@ -7,6 +7,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Inyeccion de dependencias con interfaces
+//builder.Services.AddSingleton<HelloWorldService>(); // Se crea una unica instancia de la dependencia => No recomendable
+builder.Services.AddScoped<IHelloWorldService, HelloWorldService>(); // App staless
+// builder.Services.AddScoped<IHelloWorldService>(p => new HelloWorldService()); // Inyectando de dependencia con interface
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,7 +29,7 @@ app.UseAuthorization();
 
 //app.UseWelcomePage(); // Envia a una página de Bienvenida
 
-app.UseTime(); // Middleware personalizado
+//app.UseTime(); // Middleware personalizado
 
 app.MapControllers();
 
