@@ -17,3 +17,8 @@ Ruta por default: ```https://localhost:7294/weatherforecast```
 - Model => Datos
 - Controller => Logica
 
+## Librerias base en ```https://www.nuget.org/```
+
+- Microsoft.EntityFrameworkCore
+- Microsoft.EntityFrameworkCore.InMemory 
+- Microsoft.EntityFrameworkCore.SqlServer
