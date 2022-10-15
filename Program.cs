@@ -1,3 +1,6 @@
+using webapi;
+using webapi.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,10 +10,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// CONEXION A DB
+builder.Services.AddSqlServer<TareasContext>(builder.Configuration.GetConnectionString("cnCategorias"));
+
 // Inyeccion de dependencias con interfaces
 //builder.Services.AddSingleton<HelloWorldService>(); // Se crea una unica instancia de la dependencia => No recomendable
 builder.Services.AddScoped<IHelloWorldService, HelloWorldService>(); // App staless
 // builder.Services.AddScoped<IHelloWorldService>(p => new HelloWorldService()); // Inyectando de dependencia con interface
+
+// EJEMPLO REAL Categorias & Tareas
+builder.Services.AddScoped<ICategoriaService, CategoriaService>();
+builder.Services.AddScoped<ITareasService, TareasService>();
 
 var app = builder.Build();
 

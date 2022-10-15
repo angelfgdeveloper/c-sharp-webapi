@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace webapi.Models;
 
@@ -14,6 +15,6 @@ public class Categoria
     public string Descripcion { get; set; }
     public int Peso { get; set; }
 
-    [JsonIgnore] // Ignora en nuestro recorrido
+    [ValidateNever] // Ignora en nuestro recorrido
     public virtual ICollection<Tarea> Tareas { get; set; }
 }
